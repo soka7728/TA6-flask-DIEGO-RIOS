@@ -6,4 +6,4 @@ Como correrlo:
 2. venv\Scripts\activate   (Windows)  o  source venv/bin/activate (Mac/Linux)
 3. pip install flask
 4. python app.py
-5. Abrir http://127.0.0.1:5000
+5. http://127.0.0.1:5000/
