@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block titulo %}Formulario de Notas{% endblock %}
+
+{% block contenido %}
+<div class="tarjeta">
+    <h1>Formulario de Notas</h1>
+    <form method="POST">
+        <label>Nota 1:</label>
+        <input type="text" name="nota1" value="{{ request.form.get('nota1', '') }}">
+
+        <label>Nota 2:</label>
+        <input type="text" name="nota2" value="{{ request.form.get('nota2', '') }}">
+
+        <label>Nota 3:</label>
+        <input type="text" name="nota3" value="{{ request.form.get('nota3', '') }}">
+
+        <label>Asistencia (%):</label>
+        <input type="text" name="asistencia" value="{{ request.form.get('asistencia', '') }}">
+
+        <button type="submit">Enviar</button>
+    </form>
+
+    {% if error %}
+        <p class="error">{{ error }}</p>
+    {% endif %}
+
+    {% if resultado is not none %}
+        <p class="resultado">{{ resultado }}</p>
+        <p class="estado">{{ estado }}</p>
+        <a class="link" href="{{ url_for('reset_ejercicio1') }}">Volver a intentar</a>
+    {% endif %}
+</div>
+{% endblock %}

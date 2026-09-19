@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block titulo %}Formulario de Nombres{% endblock %}
+
+{% block contenido %}
+<div class="tarjeta">
+    <form method="POST">
+        <label>Nombre 1:</label>
+        <input type="text" name="nombre1" value="{{ sugerencia if sugerencia else request.form.get('nombre1', '') }}">
+
+        <label>Nombre 2:</label>
+        <input type="text" name="nombre2" value="{{ request.form.get('nombre2', '') }}">
+
+        <label>Nombre 3:</label>
+        <input type="text" name="nombre3" value="{{ request.form.get('nombre3', '') }}">
+
+        <button type="submit">Enviar</button>
+    </form>
+
+    {% if error %}
+        <p class="error">{{ error }}</p>
+    {% endif %}
+
+    {% if nombre_mayor %}
+        <p class="resultado">El nombre con mayor cantidad de caracteres es : {{ nombre_mayor }}</p>
+        <p class="resultado">El nombre tiene : {{ cantidad }} caracteres</p>
+    {% endif %}
+</div>
+{% endblock %}
